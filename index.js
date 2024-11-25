@@ -68,8 +68,9 @@ const server = http.createServer(async (req, res) => {
     }
 });
 
-// Ajuste del servidor para escuchar en cualquier interfaz y puerto configurado
-const hostname = '0.0.0.0';
-server.listen(process.env.PORT || 3000, hostname, () => {
-    console.log(`Server running at http://${hostname}:${process.env.PORT || 3000}/`);
+const hostname = '0.0.0.0'; // Escucha en todas las interfaces
+const port = process.env.PORT || 3000; // Usa el puerto de Azure o 3000
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
 });
+
